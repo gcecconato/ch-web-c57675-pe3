@@ -1,0 +1,78 @@
+// Importación
+@import "../utilidades/variables";
+@import "../utilidades/mixin";
+
+// Diseño Mobile
+body{
+    header { 
+        div {
+            h1 {
+                /* No mostramos el título principal en esta resolución */
+                display: none;
+            }
+        }    
+    }
+    main {
+        .imagenInicio {
+            /* Estilos de la imagen inicial */
+            @include imagen(100%);
+            margin-bottom: 20px;
+        }
+        .losServicios {
+            /* Estilos para la presentación de los servicios  */
+            margin-top: 10px;
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-template-rows: repeat(8, 1fr);
+            text-align: center;
+            align-items: center;
+            row-gap: 10px;
+        }
+        .proyectos {
+            /* Estilos para la presentación de los proyectos  */
+            display: grid;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            grid-template-columns: 1fr; 
+            grid-template-rows: repeat(5, 1fr); 
+            gap: 10px;
+            .pryImg {
+                /* Ocultamos la imagen de proyectos para esta resolución de pantalla */ 
+                display: none;
+                img{
+                    @include imagen(100%);
+                    }
+            }
+        }
+        .nosotros{
+            /* Estilos para la presentación de la empresa  */
+            margin-top: 20px;
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-template-rows: 1fr 1fr 2fr;
+            align-items: center;
+            row-gap: 10px;
+        }
+        .oficina {
+            /* Ocultamos algunos datos para esta rolusión de pantalla  */
+            display: none;
+        }
+    }
+    footer {
+        /* Estilos del pié de página */
+        background-color: $color-secundario;
+        padding: 5px;
+        text-align: center;
+        ul {
+            /* Elimina los puntos de las listas */
+            list-style-type: none;
+            padding: 0;
+            li {
+                /* Que los elementos de la lista se muestren en línea y añade espacio */
+                display: inline;
+                margin-right: 10px;
+            }
+            
+        }        
+    }
+}

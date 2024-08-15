@@ -1,0 +1,174 @@
+@charset "UTF-8";
+/* Inicializamos */
+/* Se inicializa con fuente a utilizar como estilo y se opta por una sóla, para luego que el formateo final dependea de los tags h1...h6...p */
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap");
+* {
+  /* // <uniquifier>: Use a unique and descriptive class name
+  // <weight>: Use a value from 300 to 800 */
+  font-family: "Open Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: normal;
+  font-variation-settings: "wdth" 100;
+}
+
+/* Estilo general del cuerpo del HTML */
+body {
+  background-color: rgb(222, 243, 255);
+  margin: 0px;
+  padding: 0px;
+}
+
+/* Enfoque de desarrollo Mobile First*/
+body header div h1 {
+  /* No mostramos el título principal en esta resolución */
+  display: none;
+}
+body main .imagenInicio {
+  /* Estilos de la imagen inicial */
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  margin-bottom: 20px;
+}
+body main .losServicios {
+  /* Estilos para la presentación de los servicios  */
+  margin-top: 10px;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(8, 1fr);
+  text-align: center;
+  align-items: center;
+  row-gap: 10px;
+}
+body main .proyectos {
+  /* Estilos para la presentación de los proyectos  */
+  display: grid;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(5, 1fr);
+  gap: 10px;
+}
+body main .proyectos .pryImg {
+  /* Ocultamos la imagen de proyectos para esta resolución de pantalla */
+  display: none;
+}
+body main .proyectos .pryImg img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+body main .nosotros {
+  /* Estilos para la presentación de la empresa  */
+  margin-top: 20px;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 1fr 2fr;
+  align-items: center;
+  row-gap: 10px;
+}
+body main .oficina {
+  /* Ocultamos algunos datos para esta rolusión de pantalla  */
+  display: none;
+}
+body footer {
+  /* Estilos del pié de página */
+  background-color: rgb(140, 202, 239);
+  padding: 5px;
+  text-align: center;
+}
+body footer ul {
+  /* Elimina los puntos de las listas */
+  list-style-type: none;
+  padding: 0;
+}
+body footer ul li {
+  /* Que los elementos de la lista se muestren en línea y añade espacio */
+  display: inline;
+  margin-right: 10px;
+}
+
+/* Estilos para Tablet */
+@media screen and (min-width: 768px) {
+  body header div h1 {
+    /* Damos estilo y hacemos visible el titular principal  */
+    display: inline-block;
+    color: rgb(65, 132, 172);
+    margin-left: 20px;
+    vertical-align: middle;
+    line-height: 50px;
+  }
+  body main .contenidoPpal {
+    /* Ajustamos el contenido principal para esta resolución de pantalla  */
+    display: flex;
+    justify-content: center;
+    align-items: top;
+    gap: 20px;
+  }
+  body main .losServicios {
+    /* Ajustamos el conentido de los servicios ofrecidos para esta resolución de pantalla */
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+  }
+  body main .nosotros {
+    /* Ajustamos el estilo de la información de la empresa para esta resolución de pantalla */
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    column-gap: 20px;
+  }
+  body main .nosotros .txtNosotros3 {
+    grid-row: 1/span 2;
+    grid-column: 2;
+  }
+}
+/* Estilos para Desktop */
+@media screen and (min-width: 1024px) {
+  body main .proyectos {
+    /* Ajustamos los antecedentes de proyectos para esta resolución de pantalla  */
+    grid-template-columns: 1fr 2fr;
+    grid-template-rows: repeat(5, 1fr);
+    gap: 10px;
+    /* Creamos el template para presentar la información en áreas del main (grid) */
+    grid-template-areas: "izquierda1 derecha" "izquierda2 derecha" "izquierda3 derecha" "izquierda4 derecha" "izquierda5 derecha";
+    /* Asignamos los elementos a visualizar en el template creado  */
+  }
+  body main .proyectos .pry1 {
+    grid-area: izquierda1;
+  }
+  body main .proyectos .pry2 {
+    grid-area: izquierda2;
+  }
+  body main .proyectos .pry3 {
+    grid-area: izquierda3;
+  }
+  body main .proyectos .pry4 {
+    grid-area: izquierda4;
+  }
+  body main .proyectos .pry5 {
+    grid-area: izquierda5;
+  }
+  body main .proyectos .pryImg {
+    display: inline-block;
+    grid-area: derecha;
+  }
+  body main .proyectos .pryImg img {
+    /* Damos estilo a la imagen proyectos  */
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+  body main .oficina {
+    /* Damos estilo y visualizamos datos adicionales para esta resolución de pantalla */
+    display: flex;
+    justify-content: center;
+    align-items: top;
+    gap: 20px;
+    background-color: rgb(222, 243, 255);
+    border: solid 10px rgb(140, 202, 239);
+    padding: 5px;
+    margin: 20px;
+  }
+}
+
+/*# sourceMappingURL=main.css.map */

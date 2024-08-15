@@ -1,0 +1,176 @@
+
+/* Se inicializa con fuente a utilizar como estilo y se opta por una sóla, para luego que el formateo final dependea de los tags h1...h6...p */
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+
+* {
+/* // <uniquifier>: Use a unique and descriptive class name
+// <weight>: Use a value from 300 to 800 */
+    font-family: "Open Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-style: normal;
+    font-variation-settings:
+        "wdth" 100;
+}
+
+/* Estilo general del cuerpo del HTML */
+body {
+    background-color: rgb(222, 243, 255);
+    margin: 0px;
+}
+
+/* Estilos empezando con diseño para MOBILE */
+
+/* No mostramos el título principal en esta resolución */
+header h1 {
+    display: none;
+}
+
+/* Estilos de la imegen inicial */
+main .imagenInicio {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+/* Estilos para la presentación de los servicios  */
+main .losServicios {
+    margin-top: 10px;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(8, 1fr);
+    text-align: center;
+    align-items: center;
+    row-gap: 10px;
+}
+
+/* Estilos para la presentación de los proyectos  */
+main .proyectos {
+    display: grid;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    grid-template-columns: 1fr; 
+    grid-template-rows: repeat(5, 1fr); 
+    gap: 10px;
+}
+
+main .pryImg {display: none;}
+
+main .pryImg img{
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+/* Estilos para la presentación de la empresa  */
+main .nosotros{
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 2fr;
+    align-items: center;
+    row-gap: 10px;
+ }
+
+/* Ocultamos algunos datos para esta rolusión de pantalla  */
+main .oficina {
+    display: none;
+}
+
+/* Estilos del pié de página */
+
+footer {
+    background-color: rgb(140, 202, 239);
+    /* position: relative; */
+    padding: 5px;
+    text-align: center;
+}
+
+/* Elimina los puntos de las listas */
+footer ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+/* Que los elementos de la lista se muestren en línea y añade espacio */
+footer ul li {
+    display: inline;
+    margin-right: 10px;
+}
+
+/* Estilos de tablet - desktop */
+/* A partir e 768 px de resolución de pantalla  */
+
+@media screen and (min-width:768px){
+    /* Damos estilo y hacemos visible el titular principal  */
+    body header h1 {
+        display: inline-block;
+        color: rgb(65, 132, 172);
+        margin-left: 20px;
+        vertical-align: middle;
+        line-height: 50px;
+    } 
+    /* Ajustamos el contenido principal para esta resolución de pantalla  */
+    body main .contenidoPpal {
+        display: flex;
+        justify-content: center;
+        align-items: top;
+        gap: 20px;
+    }   
+    /* Ajustamos el conentido de los servicios ofrecidos para esta resolución de pantalla  */
+    main .losServicios {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(4, 1fr);
+    }    
+    /* Ajustamos los antecedentes de proyectos para esta resolución de pantalla  */
+    main .proyectos {
+        grid-template-columns: 1fr 2fr; 
+        grid-template-rows: repeat(5, 1fr); 
+        gap: 10px; 
+        /* Creamos el template para presentar la información en áreas del main (grid) */
+        grid-template-areas:
+            "izquierda1 derecha"
+            "izquierda2 derecha"
+            "izquierda3 derecha"
+            "izquierda4 derecha"
+            "izquierda5 derecha";
+    }
+    
+    /* Asignamos los elementos a visualizar en el template creado  */
+    main .pry1 { grid-area: izquierda1; }
+    main .pry2 { grid-area: izquierda2; }
+    main .pry3 { grid-area: izquierda3; }
+    main .pry4 { grid-area: izquierda4; }
+    main .pry5 { grid-area: izquierda5; }
+    main .pryImg { 
+        display: inline-block;
+        grid-area: derecha; }
+    
+    /* Damos estilo a la imagen proyectos      */
+    main .pryImg img{
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+    }
+    
+    /* Ajustamos el estilo de la información de la empresa para esta resolución de pantalla  */
+    main .nosotros{
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+        column-gap: 20px;
+    }
+    main .txtNosotros3{
+        grid-row: 1 / span 2;
+        grid-column: 2; 
+    }
+    /* Damos estilo y visualizamos datos adicionales para esta resolución de pantalla */
+    main .oficina {
+        display: flex;
+        background-color: rgb(222, 243, 255);
+        border: solid 10px  rgb(140, 202, 239);  
+        justify-content: center;    
+        padding: 5px ;
+        margin: 20px;
+        gap: 20px;
+    }    
+} 

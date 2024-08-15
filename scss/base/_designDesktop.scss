@@ -1,0 +1,56 @@
+// importación
+@import "../utilidades/variables";
+@import "../utilidades/mixin";
+
+/* Estilos para Desktop */
+@media screen and (min-width:1024px) {
+    body {
+        main {
+            .proyectos {
+                /* Ajustamos los antecedentes de proyectos para esta resolución de pantalla  */
+                grid-template-columns: 1fr 2fr; 
+                grid-template-rows: repeat(5, 1fr); 
+                gap: 10px; 
+                /* Creamos el template para presentar la información en áreas del main (grid) */
+                grid-template-areas:
+                    "izquierda1 derecha"
+                    "izquierda2 derecha"
+                    "izquierda3 derecha"
+                    "izquierda4 derecha"
+                    "izquierda5 derecha";            
+                /* Asignamos los elementos a visualizar en el template creado  */
+                .pry1 { 
+                    grid-area: izquierda1; 
+                }
+                .pry2 { 
+                    grid-area: izquierda2; 
+                }
+                .pry3 { 
+                    grid-area: izquierda3; 
+                }
+                .pry4 { 
+                    grid-area: izquierda4; 
+                }
+                .pry5 { 
+                    grid-area: izquierda5;
+                }
+                .pryImg { 
+                    display: inline-block;
+                    grid-area: derecha; 
+                    img{
+                        /* Damos estilo a la imagen proyectos  */
+                        @include imagen(100%);
+                    }
+                }
+            }           
+            .oficina {
+                /* Damos estilo y visualizamos datos adicionales para esta resolución de pantalla */
+                @include flex;
+                background-color: $color-principal;
+                border: solid 10px $color-secundario;     
+                padding: 5px ;
+                margin: 20px;             
+            }
+        }
+    }
+}

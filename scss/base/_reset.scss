@@ -1,0 +1,23 @@
+
+@import "../utilidades/variables";
+
+/* Se inicializa con fuente a utilizar como estilo y se opta por una sóla, para luego que el formateo final dependea de los tags h1...h6...p */
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+* {
+/* // <uniquifier>: Use a unique and descriptive class name
+// <weight>: Use a value from 300 to 800 */
+    font-family: "Open Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-style: normal;
+    font-variation-settings:
+        "wdth" 100;
+}
+/* Estilo general del cuerpo del HTML */
+body {
+    background-color: $color-principal;
+    margin: 0px;
+    padding: 0px;
+}
+
+
